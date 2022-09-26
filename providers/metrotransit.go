@@ -16,6 +16,6 @@ type MetroTransit struct {
 	UseSandbox bool
 }
 
-func (p *MetroTransit) GetNextTrip(route, stop, direction string) {
-
+func (p *MetroTransit) GetNextTrip(route, stop, direction string) (uint8, error) {
+	return 0, nil
 }

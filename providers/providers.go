@@ -6,7 +6,7 @@ import (
 
 // Provider is a abstracted transit provider
 type Provider interface {
-	GetNextTrip(route, stop, direction string)
+	GetNextTrip(route, stop, direction string) (uint8, error)
 }
 
 // Providers provides the ability to get a commmunication interface to the
