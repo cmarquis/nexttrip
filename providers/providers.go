@@ -6,7 +6,7 @@ import (
 
 // Provider is a abstracted transit provider
 type Provider interface {
-	GetNextTrip(route, stop, direction string) (uint8, error)
+	GetNextTrip(route, stop, direction string) (int64, error)
 }
 
 // Providers provides the ability to get a commmunication interface to the
@@ -22,7 +22,7 @@ type DefaultProviders struct{ Sandboxed bool }
 func (providers *DefaultProviders) GetProvider(providerName string) Provider {
 	switch providerName {
 	case "metrotransit":
-		return &MetroTransit{
+		return &MetroTransitProvider{
 			UseSandbox: providers.Sandboxed,
 			APIClient:  &http.Client{},
 		}

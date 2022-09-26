@@ -3,6 +3,7 @@ package cmd
 import (
 	"fmt"
 	"os"
+	"time"
 
 	"github.com/cmarquis/nexttrip/providers"
 	"github.com/spf13/cobra"
@@ -19,7 +20,10 @@ var rootCmd = &cobra.Command{
 		if err != nil {
 			panic(err)
 		}
-		fmt.Printf("%d Minutes\n", nt)
+		t := time.Unix(nt, 0)
+		now := time.Now()
+		v := t.Sub(now)
+		fmt.Printf("%d Minutes\n", int64(v.Minutes()))
 	},
 }
 
