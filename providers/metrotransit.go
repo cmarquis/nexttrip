@@ -169,7 +169,7 @@ func (p *MetroTransitProvider) getNextDepature(routeID, directionID, placeCode s
 	}
 	deps := depatures.Depatures
 	if len(deps) == 0 {
-		return depature, fmt.Errorf("no upcoming depatures for this route")
+		return depature, fmt.Errorf("no upcoming departures for this route")
 	}
 	sort.Slice(deps, func(i, j int) bool {
 		return deps[i].DepartureTime < deps[j].DepartureTime
